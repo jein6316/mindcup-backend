@@ -3,17 +3,19 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}
     url: ${SPRING_DATASOURCE_URL:jdbc:h2:file:./data/mindcupdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL}
     username: ${SPRING_DATASOURCE_USERNAME:sa}
     password: ${SPRING_DATASOURCE_PASSWORD:}
   jpa:
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.H2Dialect}
     hibernate:
-      ddl-auto: ${DDL_AUTO:update}
+      ddl-auto: update
     defer-datasource-initialization: false
     show-sql: false
     properties:
       hibernate:
+        dialect: ${HIBERNATE_DIALECT:org.hibernate.dialect.H2Dialect}
         format_sql: false
 
 # JWT 설정
