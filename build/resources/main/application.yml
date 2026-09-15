@@ -1,0 +1,65 @@
+spring:
+  profiles:
+    active: local # local (H2), dev (MySQL)
+  messages:
+    basename: messages/messages
+    encoding: UTF-8
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./mindcupdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mindcup?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    username: root
+    password: "1234"
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true
+    show-sql: true
+
+---
+# JWT 설정
+jwt:
+  secret: c3VwZXItc2VjcmV0LWtleS1taW5kLWN1cC1hcHAteHl6LTEyMzQ1Njc4OTA= # HS256 알고리즘에 충분한 256비트 이상 인코딩 키
+  access-expiration: 3600000 # 1시간 (ms)
+  refresh-expiration: 1209600000 # 14일 (ms)
+
+# Google OAuth 클라이언트 ID
+google:
+  client-id: YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com
+
+# Swagger / OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha

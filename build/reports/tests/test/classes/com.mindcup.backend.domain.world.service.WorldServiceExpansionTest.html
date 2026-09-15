@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - WorldServiceExpansionTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>WorldServiceExpansionTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.mindcup.backend.domain.world.service.html">com.mindcup.backend.domain.world.service</a> &gt; WorldServiceExpansionTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.064s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testExpansionThresholdsAndPermanentUnlock()</td>
+<td class="success">0.064s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2026-08-02T00:33:33.154+09:00  INFO 14828 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mindcup.backend.domain.world.service.WorldServiceExpansionTest]: WorldServiceExpansionTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-02T00:33:33.217+09:00  INFO 14828 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mindcup.backend.BackendApplication for test class com.mindcup.backend.domain.world.service.WorldServiceExpansionTest
+Hibernate: 
+    select
+        count(*) 
+    from
+        world_levels wl1_0
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        users
+        (email, friend_code, is_status_public, language_setting, nickname, password, provider, provider_id, refresh_token, unlocked_world_level, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_cups
+        (active_world_level, clarity_score, pollution_score, record_date, today_poured_drop_points, today_sent_drop_points, user_id, cup_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    insert 
+    into
+        user_worlds
+        (calculated_world_level, created_at, display_world_level, last_calculated_clarity_score, unlocked_world_level, updated_at, user_id, user_world_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0 
+    where
+        wl1_0.world_level_code=?
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    update
+        daily_cups 
+    set
+        active_world_level=?,
+        clarity_score=?,
+        pollution_score=?,
+        record_date=?,
+        today_poured_drop_points=?,
+        today_sent_drop_points=?,
+        user_id=? 
+    where
+        cup_id=?
+Hibernate: 
+    update
+        user_worlds 
+    set
+        calculated_world_level=?,
+        display_world_level=?,
+        last_calculated_clarity_score=?,
+        unlocked_world_level=?,
+        updated_at=?,
+        user_id=? 
+    where
+        user_world_id=?
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0 
+    where
+        wl1_0.world_level_code=?
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    update
+        daily_cups 
+    set
+        active_world_level=?,
+        clarity_score=?,
+        pollution_score=?,
+        record_date=?,
+        today_poured_drop_points=?,
+        today_sent_drop_points=?,
+        user_id=? 
+    where
+        cup_id=?
+Hibernate: 
+    update
+        user_worlds 
+    set
+        calculated_world_level=?,
+        display_world_level=?,
+        last_calculated_clarity_score=?,
+        unlocked_world_level=?,
+        updated_at=?,
+        user_id=? 
+    where
+        user_world_id=?
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0 
+    where
+        wl1_0.world_level_code=?
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    update
+        daily_cups 
+    set
+        active_world_level=?,
+        clarity_score=?,
+        pollution_score=?,
+        record_date=?,
+        today_poured_drop_points=?,
+        today_sent_drop_points=?,
+        user_id=? 
+    where
+        cup_id=?
+Hibernate: 
+    update
+        user_worlds 
+    set
+        calculated_world_level=?,
+        display_world_level=?,
+        last_calculated_clarity_score=?,
+        unlocked_world_level=?,
+        updated_at=?,
+        user_id=? 
+    where
+        user_world_id=?
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0 
+    where
+        wl1_0.world_level_code=?
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    update
+        daily_cups 
+    set
+        active_world_level=?,
+        clarity_score=?,
+        pollution_score=?,
+        record_date=?,
+        today_poured_drop_points=?,
+        today_sent_drop_points=?,
+        user_id=? 
+    where
+        cup_id=?
+Hibernate: 
+    update
+        user_worlds 
+    set
+        calculated_world_level=?,
+        display_world_level=?,
+        last_calculated_clarity_score=?,
+        unlocked_world_level=?,
+        updated_at=?,
+        user_id=? 
+    where
+        user_world_id=?
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0 
+    where
+        wl1_0.world_level_code=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10</a> at 2026. 8. 2. 오전 12:33:33</p>
+</div>
+</div>
+</body>
+</html>

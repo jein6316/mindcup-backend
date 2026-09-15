@@ -1,0 +1,34 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:file:./data/mindcupdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:update}
+    defer-datasource-initialization: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+# JWT 설정
+jwt:
+  secret: ${JWT_SECRET:c3VwZXItc2VjcmV0LWtleS1taW5kLWN1cC1hcHAteHl6LTEyMzQ1Njc4OTA=}
+  access-expiration: 3600000 # 1시간 (ms)
+  refresh-expiration: 1209600000 # 14일 (ms)
+
+# Google OAuth 클라이언트 ID
+google:
+  client-id: ${GOOGLE_CLIENT_ID:YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com}
+
+# Swagger / OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html

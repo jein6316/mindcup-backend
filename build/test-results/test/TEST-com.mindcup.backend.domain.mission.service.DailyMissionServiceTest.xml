@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mindcup.backend.domain.mission.service.DailyMissionServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-01T15:33:32" hostname="JIEUN" time="0.119">
+  <properties/>
+  <testcase name="testMissionLimitUpperBoundaryNotDecreased()" classname="com.mindcup.backend.domain.mission.service.DailyMissionServiceTest" time="0.045"/>
+  <testcase name="testGetTodayMissionsCreatesDeterministicThreeMissions()" classname="com.mindcup.backend.domain.mission.service.DailyMissionServiceTest" time="0.028"/>
+  <testcase name="testCompleteMissionDecreasesScoreAndCreatesLog()" classname="com.mindcup.backend.domain.mission.service.DailyMissionServiceTest" time="0.043"/>
+  <system-out><![CDATA[2026-08-02T00:33:32.766+09:00  INFO 14828 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mindcup.backend.domain.mission.service.DailyMissionServiceTest]: DailyMissionServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-02T00:33:32.821+09:00  INFO 14828 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mindcup.backend.BackendApplication for test class com.mindcup.backend.domain.mission.service.DailyMissionServiceTest
+Hibernate: 
+    select
+        count(*) 
+    from
+        world_levels wl1_0
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        users
+        (email, friend_code, is_status_public, language_setting, nickname, password, provider, provider_id, refresh_token, unlocked_world_level, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        dm1_0.mission_id,
+        dm1_0.created_at,
+        dm1_0.description_key,
+        dm1_0.effect_score,
+        dm1_0.mission_code,
+        dm1_0.mission_type,
+        dm1_0.sort_order,
+        dm1_0.title_key,
+        dm1_0.use_yn 
+    from
+        daily_missions dm1_0
+Hibernate: 
+    insert 
+    into
+        daily_missions
+        (created_at, description_key, effect_score, mission_code, mission_type, sort_order, title_key, use_yn, mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_missions
+        (created_at, description_key, effect_score, mission_code, mission_type, sort_order, title_key, use_yn, mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_cups
+        (active_world_level, clarity_score, pollution_score, record_date, today_poured_drop_points, today_sent_drop_points, user_id, cup_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        udm1_0.user_daily_mission_id,
+        udm1_0.completed_at,
+        udm1_0.completed_yn,
+        udm1_0.created_at,
+        udm1_0.mission_date,
+        udm1_0.mission_id,
+        udm1_0.user_id 
+    from
+        user_daily_missions udm1_0 
+    where
+        udm1_0.user_id=? 
+        and udm1_0.mission_date=?
+Hibernate: 
+    select
+        dm1_0.mission_id,
+        dm1_0.created_at,
+        dm1_0.description_key,
+        dm1_0.effect_score,
+        dm1_0.mission_code,
+        dm1_0.mission_type,
+        dm1_0.sort_order,
+        dm1_0.title_key,
+        dm1_0.use_yn 
+    from
+        daily_missions dm1_0 
+    where
+        dm1_0.use_yn=? 
+    order by
+        dm1_0.sort_order
+Hibernate: 
+    insert 
+    into
+        user_daily_missions
+        (completed_at, completed_yn, created_at, mission_date, mission_id, user_id, user_daily_mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        user_daily_missions
+        (completed_at, completed_yn, created_at, mission_date, mission_id, user_id, user_daily_mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        mind_score_effect_logs
+        (created_at, effect_date, effect_score, limit_exceeded_yn, source_id, source_type, user_id, log_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        udm1_0.user_daily_mission_id,
+        udm1_0.completed_at,
+        udm1_0.completed_yn,
+        udm1_0.created_at,
+        udm1_0.mission_date,
+        udm1_0.mission_id,
+        udm1_0.user_id 
+    from
+        user_daily_missions udm1_0 
+    where
+        udm1_0.user_id=? 
+        and udm1_0.mission_id=? 
+        and udm1_0.mission_date=?
+Hibernate: 
+    select
+        coalesce(sum(msel1_0.effect_score), 0) 
+    from
+        mind_score_effect_logs msel1_0 
+    where
+        msel1_0.user_id=? 
+        and msel1_0.effect_date=? 
+        and msel1_0.source_type=? 
+        and msel1_0.limit_exceeded_yn='N'
+Hibernate: 
+    insert 
+    into
+        mind_score_effect_logs
+        (created_at, effect_date, effect_score, limit_exceeded_yn, source_id, source_type, user_id, log_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    insert 
+    into
+        user_worlds
+        (calculated_world_level, created_at, display_world_level, last_calculated_clarity_score, unlocked_world_level, updated_at, user_id, user_world_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0 
+    where
+        wl1_0.world_level_code=?
+Hibernate: 
+    select
+        a1_0.achievement_id,
+        a1_0.achievement_code,
+        a1_0.condition_type,
+        a1_0.condition_value,
+        a1_0.created_at,
+        a1_0.description_key,
+        a1_0.reward_type,
+        a1_0.reward_value,
+        a1_0.sort_order,
+        a1_0.title_key,
+        a1_0.use_yn 
+    from
+        achievements a1_0 
+    where
+        a1_0.use_yn=? 
+    order by
+        a1_0.sort_order
+Hibernate: 
+    select
+        count(*) 
+    from
+        world_levels wl1_0
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        users
+        (email, friend_code, is_status_public, language_setting, nickname, password, provider, provider_id, refresh_token, unlocked_world_level, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        dm1_0.mission_id,
+        dm1_0.created_at,
+        dm1_0.description_key,
+        dm1_0.effect_score,
+        dm1_0.mission_code,
+        dm1_0.mission_type,
+        dm1_0.sort_order,
+        dm1_0.title_key,
+        dm1_0.use_yn 
+    from
+        daily_missions dm1_0
+Hibernate: 
+    insert 
+    into
+        daily_missions
+        (created_at, description_key, effect_score, mission_code, mission_type, sort_order, title_key, use_yn, mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_missions
+        (created_at, description_key, effect_score, mission_code, mission_type, sort_order, title_key, use_yn, mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        udm1_0.user_daily_mission_id,
+        udm1_0.completed_at,
+        udm1_0.completed_yn,
+        udm1_0.created_at,
+        udm1_0.mission_date,
+        udm1_0.mission_id,
+        udm1_0.user_id 
+    from
+        user_daily_missions udm1_0 
+    where
+        udm1_0.user_id=? 
+        and udm1_0.mission_date=?
+Hibernate: 
+    select
+        dm1_0.mission_id,
+        dm1_0.created_at,
+        dm1_0.description_key,
+        dm1_0.effect_score,
+        dm1_0.mission_code,
+        dm1_0.mission_type,
+        dm1_0.sort_order,
+        dm1_0.title_key,
+        dm1_0.use_yn 
+    from
+        daily_missions dm1_0 
+    where
+        dm1_0.use_yn=? 
+    order by
+        dm1_0.sort_order
+Hibernate: 
+    insert 
+    into
+        user_daily_missions
+        (completed_at, completed_yn, created_at, mission_date, mission_id, user_id, user_daily_mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        user_daily_missions
+        (completed_at, completed_yn, created_at, mission_date, mission_id, user_id, user_daily_mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        count(*) 
+    from
+        world_levels wl1_0
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        users
+        (email, friend_code, is_status_public, language_setting, nickname, password, provider, provider_id, refresh_token, unlocked_world_level, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        dm1_0.mission_id,
+        dm1_0.created_at,
+        dm1_0.description_key,
+        dm1_0.effect_score,
+        dm1_0.mission_code,
+        dm1_0.mission_type,
+        dm1_0.sort_order,
+        dm1_0.title_key,
+        dm1_0.use_yn 
+    from
+        daily_missions dm1_0
+Hibernate: 
+    insert 
+    into
+        daily_missions
+        (created_at, description_key, effect_score, mission_code, mission_type, sort_order, title_key, use_yn, mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_missions
+        (created_at, description_key, effect_score, mission_code, mission_type, sort_order, title_key, use_yn, mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_cups
+        (active_world_level, clarity_score, pollution_score, record_date, today_poured_drop_points, today_sent_drop_points, user_id, cup_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        udm1_0.user_daily_mission_id,
+        udm1_0.completed_at,
+        udm1_0.completed_yn,
+        udm1_0.created_at,
+        udm1_0.mission_date,
+        udm1_0.mission_id,
+        udm1_0.user_id 
+    from
+        user_daily_missions udm1_0 
+    where
+        udm1_0.user_id=? 
+        and udm1_0.mission_date=?
+Hibernate: 
+    select
+        dm1_0.mission_id,
+        dm1_0.created_at,
+        dm1_0.description_key,
+        dm1_0.effect_score,
+        dm1_0.mission_code,
+        dm1_0.mission_type,
+        dm1_0.sort_order,
+        dm1_0.title_key,
+        dm1_0.use_yn 
+    from
+        daily_missions dm1_0 
+    where
+        dm1_0.use_yn=? 
+    order by
+        dm1_0.sort_order
+Hibernate: 
+    insert 
+    into
+        user_daily_missions
+        (completed_at, completed_yn, created_at, mission_date, mission_id, user_id, user_daily_mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        user_daily_missions
+        (completed_at, completed_yn, created_at, mission_date, mission_id, user_id, user_daily_mission_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        udm1_0.user_daily_mission_id,
+        udm1_0.completed_at,
+        udm1_0.completed_yn,
+        udm1_0.created_at,
+        udm1_0.mission_date,
+        udm1_0.mission_id,
+        udm1_0.user_id 
+    from
+        user_daily_missions udm1_0 
+    where
+        udm1_0.user_id=? 
+        and udm1_0.mission_id=? 
+        and udm1_0.mission_date=?
+Hibernate: 
+    select
+        coalesce(sum(msel1_0.effect_score), 0) 
+    from
+        mind_score_effect_logs msel1_0 
+    where
+        msel1_0.user_id=? 
+        and msel1_0.effect_date=? 
+        and msel1_0.source_type=? 
+        and msel1_0.limit_exceeded_yn='N'
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date=?
+Hibernate: 
+    insert 
+    into
+        mind_score_effect_logs
+        (created_at, effect_date, effect_score, limit_exceeded_yn, source_id, source_type, user_id, log_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    update
+        daily_cups 
+    set
+        active_world_level=?,
+        clarity_score=?,
+        pollution_score=?,
+        record_date=?,
+        today_poured_drop_points=?,
+        today_sent_drop_points=?,
+        user_id=? 
+    where
+        cup_id=?
+Hibernate: 
+    update
+        user_daily_missions 
+    set
+        completed_at=?,
+        completed_yn=?,
+        mission_date=?,
+        mission_id=?,
+        user_id=? 
+    where
+        user_daily_mission_id=?
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    insert 
+    into
+        user_worlds
+        (calculated_world_level, created_at, display_world_level, last_calculated_clarity_score, unlocked_world_level, updated_at, user_id, user_world_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        ec1_0.creature_id,
+        ec1_0.creature_code,
+        ec1_0.creature_name_key,
+        ec1_0.creature_type,
+        ec1_0.default_visible_yn,
+        ec1_0.sort_order,
+        ec1_0.use_yn,
+        ec1_0.world_level_code 
+    from
+        ecosystem_creatures ec1_0 
+    where
+        ec1_0.world_level_code=? 
+        and ec1_0.use_yn=?
+Hibernate: 
+    select
+        wi1_0.item_id,
+        wi1_0.item_code,
+        wi1_0.item_name_key,
+        wi1_0.item_type,
+        wi1_0.slot_type,
+        wi1_0.sort_order,
+        wi1_0.use_yn,
+        wi1_0.world_level_code 
+    from
+        world_items wi1_0 
+    where
+        wi1_0.world_level_code=? 
+        and wi1_0.use_yn=?
+Hibernate: 
+    select
+        wl1_0.world_level_id,
+        wl1_0.required_average_clarity_score,
+        wl1_0.sort_order,
+        wl1_0.use_yn,
+        wl1_0.world_level_code,
+        wl1_0.world_level_name_key 
+    from
+        world_levels wl1_0 
+    where
+        wl1_0.world_level_code=?
+Hibernate: 
+    select
+        a1_0.achievement_id,
+        a1_0.achievement_code,
+        a1_0.condition_type,
+        a1_0.condition_value,
+        a1_0.created_at,
+        a1_0.description_key,
+        a1_0.reward_type,
+        a1_0.reward_value,
+        a1_0.sort_order,
+        a1_0.title_key,
+        a1_0.use_yn 
+    from
+        achievements a1_0 
+    where
+        a1_0.use_yn=? 
+    order by
+        a1_0.sort_order
+Hibernate: 
+    select
+        coalesce(sum(msel1_0.effect_score), 0) 
+    from
+        mind_score_effect_logs msel1_0 
+    where
+        msel1_0.user_id=? 
+        and msel1_0.effect_date=? 
+        and msel1_0.source_type=? 
+        and msel1_0.limit_exceeded_yn='N'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

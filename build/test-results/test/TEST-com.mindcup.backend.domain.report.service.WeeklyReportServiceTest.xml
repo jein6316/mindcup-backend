@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mindcup.backend.domain.report.service.WeeklyReportServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-08-01T15:33:33" hostname="JIEUN" time="0.118">
+  <properties/>
+  <testcase name="testEmptyDataReturnsEncouragementKey()" classname="com.mindcup.backend.domain.report.service.WeeklyReportServiceTest" time="0.021"/>
+  <testcase name="testStatisticalCalculationAndDuplicateUpdatesReport()" classname="com.mindcup.backend.domain.report.service.WeeklyReportServiceTest" time="0.097"/>
+  <system-out><![CDATA[2026-08-02T00:33:32.949+09:00  INFO 14828 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mindcup.backend.domain.report.service.WeeklyReportServiceTest]: WeeklyReportServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-02T00:33:33.027+09:00  INFO 14828 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mindcup.backend.BackendApplication for test class com.mindcup.backend.domain.report.service.WeeklyReportServiceTest
+Hibernate: 
+    select
+        count(*) 
+    from
+        world_levels wl1_0
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        users
+        (email, friend_code, is_status_public, language_setting, nickname, password, provider, provider_id, refresh_token, unlocked_world_level, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        wr1_0.weekly_report_id,
+        wr1_0.average_clarity_score,
+        wr1_0.average_pollution_score,
+        wr1_0.completed_mission_count,
+        wr1_0.created_at,
+        wr1_0.end_date,
+        wr1_0.most_common_clear_action,
+        wr1_0.most_common_cloudy_action,
+        wr1_0.most_effective_clear_action,
+        wr1_0.poured_drop_count,
+        wr1_0.report_message_key,
+        wr1_0.sent_drop_count,
+        wr1_0.start_date,
+        wr1_0.unlocked_world_level,
+        wr1_0.updated_at,
+        wr1_0.user_id 
+    from
+        weekly_reports wr1_0 
+    where
+        wr1_0.user_id=? 
+        and wr1_0.start_date=? 
+        and wr1_0.end_date=?
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    select
+        wr1_0.weekly_report_id,
+        wr1_0.average_clarity_score,
+        wr1_0.average_pollution_score,
+        wr1_0.completed_mission_count,
+        wr1_0.created_at,
+        wr1_0.end_date,
+        wr1_0.most_common_clear_action,
+        wr1_0.most_common_cloudy_action,
+        wr1_0.most_effective_clear_action,
+        wr1_0.poured_drop_count,
+        wr1_0.report_message_key,
+        wr1_0.sent_drop_count,
+        wr1_0.start_date,
+        wr1_0.unlocked_world_level,
+        wr1_0.updated_at,
+        wr1_0.user_id 
+    from
+        weekly_reports wr1_0 
+    where
+        wr1_0.user_id=? 
+        and wr1_0.start_date=? 
+        and wr1_0.end_date=?
+Hibernate: 
+    insert 
+    into
+        weekly_reports
+        (average_clarity_score, average_pollution_score, completed_mission_count, created_at, end_date, most_common_clear_action, most_common_cloudy_action, most_effective_clear_action, poured_drop_count, report_message_key, sent_drop_count, start_date, unlocked_world_level, updated_at, user_id, weekly_report_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        count(*) 
+    from
+        world_levels wl1_0
+Hibernate: 
+    insert 
+    into
+        world_levels
+        (required_average_clarity_score, sort_order, use_yn, world_level_code, world_level_name_key, world_level_id) 
+    values
+        (?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        users
+        (email, friend_code, is_status_public, language_setting, nickname, password, provider, provider_id, refresh_token, unlocked_world_level, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_cups
+        (active_world_level, clarity_score, pollution_score, record_date, today_poured_drop_points, today_sent_drop_points, user_id, cup_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_cups
+        (active_world_level, clarity_score, pollution_score, record_date, today_poured_drop_points, today_sent_drop_points, user_id, cup_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_cups
+        (active_world_level, clarity_score, pollution_score, record_date, today_poured_drop_points, today_sent_drop_points, user_id, cup_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        mind_records
+        (action_name, created_at, cup_id, intensity, memo, record_type, record_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        mind_records
+        (action_name, created_at, cup_id, intensity, memo, record_type, record_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        mind_records
+        (action_name, created_at, cup_id, intensity, memo, record_type, record_id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    select
+        mr1_0.record_id,
+        mr1_0.action_name,
+        mr1_0.created_at,
+        mr1_0.cup_id,
+        mr1_0.intensity,
+        mr1_0.memo,
+        mr1_0.record_type 
+    from
+        mind_records mr1_0 
+    join
+        daily_cups dc1_0 
+            on dc1_0.cup_id=mr1_0.cup_id 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ?
+Hibernate: 
+    select
+        count(cm1_0.comfort_id) 
+    from
+        comfort_messages cm1_0 
+    where
+        cm1_0.sender_user_id=? 
+        and cm1_0.sent_date between ? and ?
+Hibernate: 
+    select
+        count(cm1_0.comfort_id) 
+    from
+        comfort_messages cm1_0 
+    where
+        cm1_0.receiver_user_id=? 
+        and cm1_0.poured_yn=? 
+        and cm1_0.sent_date between ? and ?
+Hibernate: 
+    select
+        count(udm1_0.user_daily_mission_id) 
+    from
+        user_daily_missions udm1_0 
+    where
+        udm1_0.user_id=? 
+        and udm1_0.completed_yn=? 
+        and udm1_0.mission_date between ? and ?
+Hibernate: 
+    select
+        wr1_0.weekly_report_id,
+        wr1_0.average_clarity_score,
+        wr1_0.average_pollution_score,
+        wr1_0.completed_mission_count,
+        wr1_0.created_at,
+        wr1_0.end_date,
+        wr1_0.most_common_clear_action,
+        wr1_0.most_common_cloudy_action,
+        wr1_0.most_effective_clear_action,
+        wr1_0.poured_drop_count,
+        wr1_0.report_message_key,
+        wr1_0.sent_drop_count,
+        wr1_0.start_date,
+        wr1_0.unlocked_world_level,
+        wr1_0.updated_at,
+        wr1_0.user_id 
+    from
+        weekly_reports wr1_0 
+    where
+        wr1_0.user_id=? 
+        and wr1_0.start_date=? 
+        and wr1_0.end_date=?
+Hibernate: 
+    insert 
+    into
+        weekly_reports
+        (average_clarity_score, average_pollution_score, completed_mission_count, created_at, end_date, most_common_clear_action, most_common_cloudy_action, most_effective_clear_action, poured_drop_count, report_message_key, sent_drop_count, start_date, unlocked_world_level, updated_at, user_id, weekly_report_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        daily_cups
+        (active_world_level, clarity_score, pollution_score, record_date, today_poured_drop_points, today_sent_drop_points, user_id, cup_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        dc1_0.cup_id,
+        dc1_0.active_world_level,
+        dc1_0.clarity_score,
+        dc1_0.pollution_score,
+        dc1_0.record_date,
+        dc1_0.today_poured_drop_points,
+        dc1_0.today_sent_drop_points,
+        dc1_0.user_id 
+    from
+        daily_cups dc1_0 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ? 
+    order by
+        dc1_0.record_date
+Hibernate: 
+    select
+        uw1_0.user_world_id,
+        uw1_0.calculated_world_level,
+        uw1_0.created_at,
+        uw1_0.display_world_level,
+        uw1_0.last_calculated_clarity_score,
+        uw1_0.unlocked_world_level,
+        uw1_0.updated_at,
+        uw1_0.user_id 
+    from
+        user_worlds uw1_0 
+    where
+        uw1_0.user_id=?
+Hibernate: 
+    select
+        mr1_0.record_id,
+        mr1_0.action_name,
+        mr1_0.created_at,
+        mr1_0.cup_id,
+        mr1_0.intensity,
+        mr1_0.memo,
+        mr1_0.record_type 
+    from
+        mind_records mr1_0 
+    join
+        daily_cups dc1_0 
+            on dc1_0.cup_id=mr1_0.cup_id 
+    where
+        dc1_0.user_id=? 
+        and dc1_0.record_date between ? and ?
+Hibernate: 
+    select
+        count(cm1_0.comfort_id) 
+    from
+        comfort_messages cm1_0 
+    where
+        cm1_0.sender_user_id=? 
+        and cm1_0.sent_date between ? and ?
+Hibernate: 
+    select
+        count(cm1_0.comfort_id) 
+    from
+        comfort_messages cm1_0 
+    where
+        cm1_0.receiver_user_id=? 
+        and cm1_0.poured_yn=? 
+        and cm1_0.sent_date between ? and ?
+Hibernate: 
+    select
+        count(udm1_0.user_daily_mission_id) 
+    from
+        user_daily_missions udm1_0 
+    where
+        udm1_0.user_id=? 
+        and udm1_0.completed_yn=? 
+        and udm1_0.mission_date between ? and ?
+Hibernate: 
+    select
+        wr1_0.weekly_report_id,
+        wr1_0.average_clarity_score,
+        wr1_0.average_pollution_score,
+        wr1_0.completed_mission_count,
+        wr1_0.created_at,
+        wr1_0.end_date,
+        wr1_0.most_common_clear_action,
+        wr1_0.most_common_cloudy_action,
+        wr1_0.most_effective_clear_action,
+        wr1_0.poured_drop_count,
+        wr1_0.report_message_key,
+        wr1_0.sent_drop_count,
+        wr1_0.start_date,
+        wr1_0.unlocked_world_level,
+        wr1_0.updated_at,
+        wr1_0.user_id 
+    from
+        weekly_reports wr1_0 
+    where
+        wr1_0.user_id=? 
+        and wr1_0.start_date=? 
+        and wr1_0.end_date=?
+Hibernate: 
+    update
+        weekly_reports 
+    set
+        average_clarity_score=?,
+        average_pollution_score=?,
+        completed_mission_count=?,
+        end_date=?,
+        most_common_clear_action=?,
+        most_common_cloudy_action=?,
+        most_effective_clear_action=?,
+        poured_drop_count=?,
+        report_message_key=?,
+        sent_drop_count=?,
+        start_date=?,
+        unlocked_world_level=?,
+        updated_at=?,
+        user_id=? 
+    where
+        weekly_report_id=?
+Hibernate: 
+    select
+        count(*) 
+    from
+        weekly_reports wr1_0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

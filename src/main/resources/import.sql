@@ -1,0 +1,1 @@
+-- import.sql 이 비워져 있습니다. 데이터 시딩은 DB 중복 충돌을 방지하기 위해 TestDataInitializer.java 자바 코드에서 안전하게 수행합니다.
