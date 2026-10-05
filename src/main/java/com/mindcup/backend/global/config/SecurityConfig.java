@@ -66,12 +66,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // 보안 강화: 내 Vercel 프론트엔드 도메인 패턴 및 로컬 개발 주소만 콕 집어서 허용
-        configuration.setAllowedOriginPatterns(List.of(
-                "https://*.vercel.app",
-                "http://localhost:*",
-                "http://10.0.2.2:*"
-        ));
+        configuration.addAllowedOriginPattern("*");
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setExposedHeaders(List.of("Authorization"));
