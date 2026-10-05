@@ -1,5 +1,6 @@
 package com.mindcup.backend.domain.user.dto;
 
+import com.mindcup.backend.domain.user.entity.Role;
 import com.mindcup.backend.domain.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +14,7 @@ public class UserResponse {
     private String friendCode;
     private String languageSetting;
     private String unlockedWorldLevel;
+    private Role role;
 
     public static UserResponse from(User user) {
         return new UserResponse(
@@ -21,7 +23,8 @@ public class UserResponse {
                 user.getNickname(),
                 user.getFriendCode(),
                 user.getLanguageSetting(),
-                user.getUnlockedWorldLevel()
+                user.getUnlockedWorldLevel(),
+                user.getRole() != null ? user.getRole() : Role.ROLE_USER
         );
     }
 }

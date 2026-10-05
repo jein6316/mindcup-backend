@@ -2,6 +2,8 @@ package com.mindcup.backend.domain.user.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -46,11 +48,15 @@ public class User {
     @Column(nullable = false)
     private String unlockedWorldLevel; // SMALL_CUP, LARGE_CUP ...
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
     private String refreshToken;
 
     @Builder
     public User(String email, String password, String nickname, String provider, String providerId,
-                String friendCode, boolean isStatusPublic, String languageSetting, String unlockedWorldLevel) {
+                String friendCode, boolean isStatusPublic, String languageSetting, String unlockedWorldLevel, Role role) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
@@ -60,6 +66,7 @@ public class User {
         this.isStatusPublic = isStatusPublic;
         this.languageSetting = languageSetting;
         this.unlockedWorldLevel = unlockedWorldLevel;
+        this.role = (role != null) ? role : Role.ROLE_USER;
     }
 
     public void updateRefreshToken(String refreshToken) {
@@ -76,5 +83,9 @@ public class User {
 
     public void updateUnlockedWorldLevel(String unlockedWorldLevel) {
         this.unlockedWorldLevel = unlockedWorldLevel;
+    }
+
+    public void updateRole(Role role) {
+        this.role = role;
     }
 }

@@ -54,6 +54,7 @@ public class SecurityConfig {
                     "/api-docs/**",
                     "/h2-console/**"
                 ).permitAll()
+                .requestMatchers("/api/v1/admin/**").hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated()
             )
             .headers(headers -> headers.frameOptions(frame -> frame.disable())); // H2 콘솔 사용 위함

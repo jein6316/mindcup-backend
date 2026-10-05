@@ -9,6 +9,7 @@ import com.mindcup.backend.domain.user.dto.LoginRequest;
 import com.mindcup.backend.domain.user.dto.SignupRequest;
 import com.mindcup.backend.domain.user.dto.TokenResponse;
 import com.mindcup.backend.domain.user.dto.UserResponse;
+import com.mindcup.backend.domain.user.entity.Role;
 import com.mindcup.backend.domain.user.entity.User;
 import com.mindcup.backend.domain.user.repository.UserRepository;
 import com.mindcup.backend.global.exception.BusinessException;
@@ -55,6 +56,7 @@ public class AuthService {
                 .isStatusPublic(true)
                 .languageSetting("KO")
                 .unlockedWorldLevel("SMALL_CUP")
+                .role(Role.ROLE_USER)
                 .build();
 
         userRepository.save(user);
@@ -123,6 +125,7 @@ public class AuthService {
                     .isStatusPublic(true)
                     .languageSetting("KO")
                     .unlockedWorldLevel("SMALL_CUP")
+                    .role(Role.ROLE_USER)
                     .build();
             userRepository.save(user);
         }
